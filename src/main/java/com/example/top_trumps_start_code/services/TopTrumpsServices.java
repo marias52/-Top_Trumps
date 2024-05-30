@@ -29,7 +29,12 @@ public class TopTrumpsServices {
         }
     }
 
-
+    public String startNewGame() {
+        this.topTrump = new topTrump("hello");
+        return new String(
+                "started new game"
+                );
+    }
     // Create a TopTrumpsService class that has a method called checkWinner().
     // This method should take in the 2 card objects.
 

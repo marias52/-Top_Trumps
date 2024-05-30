@@ -18,10 +18,17 @@ public class TopTrumpsController {
 @Autowired
 TopTrumpsServices topTrumpsServices;
 
+    @PostMapping // Starts a new game.
+    public ResponseEntity<Card> newGame() {
+        Card card = TopTrumpsServices.startNewGame();
+        return new ResponseEntity<>(card, HttpStatus.CREATED); // 200 -ok, 201 - create
+    }
+
     @PostMapping
     public ResponseEntity<String> game(@RequestBody ArrayList<Card> cards) {
         String winner = topTrumpsServices.checkWinner(cards);
         return new ResponseEntity<>(winner, HttpStatus.OK);
     }
+
 
 }
